@@ -1,5 +1,5 @@
 {
-    "name": "joedixon/laravel-translation",
+    "name": "windstep/laravel-translation",
     "description": "A tool for managing all of your Laravel translations",
     "type": "library",
     "license": "MIT",
@@ -7,6 +7,10 @@
         {
             "name": "Joe Dixon",
             "email": "hello@joedixon.co.uk"
+        },
+        {
+            "name": "Windstep",
+            "email": "icq431@yandex.ru"
         }
     ],
     "require": {},
