@@ -10,10 +10,15 @@ use JoeDixon\Translation\Http\Requests\LanguageRequest;
 class LanguageController extends Controller
 {
     private $translation;
+    /**
+     * @var array
+     */
+    private $commands;
 
-    public function __construct(Translation $translation)
+    public function __construct(Translation $translation, array $commands = [])
     {
         $this->translation = $translation;
+        $this->commands = $commands;
     }
 
     public function index(Request $request)
@@ -31,6 +36,8 @@ class LanguageController extends Controller
     public function store(LanguageRequest $request)
     {
         $this->translation->addLanguage($request->locale, $request->name);
+
+        $this->translation->executeCommandsAfterSave($this->commands);
 
         return redirect()
             ->route('languages.index')

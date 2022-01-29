@@ -18,12 +18,13 @@ class File extends Translation implements DriverInterface
 
     protected $scanner;
 
-    public function __construct(Filesystem $disk, $languageFilesPath, $sourceLanguage, $scanner)
+    public function __construct(Filesystem $disk, $languageFilesPath, $sourceLanguage, $scanner, array $commands = [])
     {
         $this->disk = $disk;
         $this->languageFilesPath = $languageFilesPath;
         $this->sourceLanguage = $sourceLanguage;
         $this->scanner = $scanner;
+        $this->commands = $commands;
     }
 
     /**

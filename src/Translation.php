@@ -3,6 +3,7 @@
 namespace JoeDixon\Translation;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 
 class Translation extends Model
 {

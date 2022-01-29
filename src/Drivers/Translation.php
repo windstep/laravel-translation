@@ -3,10 +3,12 @@
 namespace JoeDixon\Translation\Drivers;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 abstract class Translation
 {
+    public $commands = [];
     /**
      * Find all of the translations in the app without translation for a given language.
      *
@@ -97,5 +99,12 @@ abstract class Translation
                 return $keys->isNotEmpty();
             });
         });
+    }
+
+    public function executeCommandsAfterSave()
+    {
+        foreach ($this->commands as $command) {
+            Artisan::call($command['name'], $command['parameters'] ?? []);
+        }
     }
 }

@@ -37,11 +37,11 @@ class TranslationManager
 
     protected function resolveFileDriver()
     {
-        return new File(new Filesystem, $this->app['path.lang'], $this->app->config['app']['locale'], $this->scanner);
+        return new File(new Filesystem, $this->app['path.lang'], $this->app->config['app']['locale'], $this->scanner, $this->config['commands']);
     }
 
     protected function resolveDatabaseDriver()
     {
-        return new Database($this->app->config['app']['locale'], $this->scanner);
+        return new Database($this->app->config['app']['locale'], $this->scanner, $this->config['commands']);
     }
 }

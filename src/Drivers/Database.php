@@ -13,10 +13,11 @@ class Database extends Translation implements DriverInterface
 
     protected $scanner;
 
-    public function __construct($sourceLanguage, $scanner)
+    public function __construct($sourceLanguage, $scanner, array $commands = [])
     {
         $this->sourceLanguage = $sourceLanguage;
         $this->scanner = $scanner;
+        $this->commands = $commands;
     }
 
     /**

@@ -74,4 +74,19 @@ return [
 
         'translations_table' => 'translations',
     ],
+
+    /**
+    |--------------------------------------------------------------------------
+    | Commands to execute after data was added/saved
+    |--------------------------------------------------------------------------
+    |
+    | Define the settings for the database driver here.
+    |
+    |
+    | Example ['name' => 'mail:send', 'parameters' => ['--id': 1]]
+    | @see https://laravel.com/docs/8.x/artisan#programmatically-executing-commands
+     */
+    'commands' => [
+
+    ]
 ];
