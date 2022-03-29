@@ -107,4 +107,19 @@ abstract class Translation
             Artisan::call($command['name'], $command['parameters'] ?? []);
         }
     }
+
+    abstract public function allTranslationsFor($language);
+
+    public function getTranslations($language)
+    {
+        $languageTranslations = $this->allTranslationsFor($language);
+        $result = [];
+        foreach ($languageTranslations as $group => $languages) {
+            foreach ($languages as $language => $translations) {
+                $result = array_merge($result, $translations);
+            }
+        }
+
+        return $result;
+    }
 }
