@@ -112,7 +112,7 @@ abstract class Translation
 
     public function getTranslations($language)
     {
-        $languageTranslations = $this->allTranslationsFor($language);
+        $languageTranslations = $this->allTranslationsFor($language)->toArray();
         $result = [];
         foreach ($languageTranslations as $group => $languages) {
             foreach ($languages as $language => $translations) {
